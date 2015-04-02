@@ -1,0 +1,24 @@
+=stylesheet_link_tag "sign_in"
+=render 'navbar'
+
+%h1 Sign-In
+
+
+=form_tag invalid_user_page_path(@user), :method=>:get do
+  .div1
+    %div
+    = label :user, :login_name, 'User Name'
+    .user-field
+    = text_field :user, 'first_name'
+  
+    %div
+    = label :user, :pin, "Password"
+    .password-field
+    = text_field :user, 'pin'
+  
+    %div
+    = link_to "Register", register_page_path
+    %div
+    = submit_tag "Sign-In"
+
+=link_to "Back to Home", index_page_path

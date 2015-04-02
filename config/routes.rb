@@ -11,6 +11,12 @@ Rails.application.routes.draw do
   get '/resources', to: 'welcome#resources', as: :resources_page
   get '/bike_shop_info', to: 'welcome#bike_shop_info', as: :bike_shop_info_page
   get '/how_it_works', to: "welcome#how_it_works", as: :how_it_works_page
+
+  get '/sign_in', to: "welcome#sign_in", as: :sign_in_page
+  get '/invalid_user', to: "welcome#invalid_user", as: :invalid_user_page
+  get '/valid_user', to: "welcome#valid_user", as: :valid_user_page
+#post '/', to: "user#create", as: :new_user_page  
+	# Example of regular route:
   get '/register', to: "user#register", as: :register_page
   post '/register', to: "user#create", as: :new_user_page  
   get '/manage_users', to: "accounts#manage_users", as: :manage_users_page
