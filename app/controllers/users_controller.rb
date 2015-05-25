@@ -7,13 +7,19 @@ class UsersController < ApplicationController
     @user.email = params[:user][:email]
     @user.pin = params[:user][:pin]
 
-    @user.assigned_bike = params[:user][:assigned_bike]
-    @user.total_ride_time = params[:user][:total_ride_time]
-    @user.total_number_of_rides = params[:user][:total_number_of_rides]
+    #the following data members need to be assigned when a bike is checked out
+    @user.assigned_bike = -1
+    @user.total_ride_time = 0
+    @user.total_number_of_rides = 0
+
+    if User.find_by(bu_id: @user.bu_id) == nil
+      flash[:error] = "The BU ID you have entered is not valid."
+      redirect_to new_user_path and return
+    end
 
     if @user.save
-      @createdUser = User.find_by(bu_id: @user.bu_id)
-      flash[:notice] = " An account for #{@createdUser.first_name} #{@createdUser.last_name} was successfully created"
+      #@createdUser = User.find_by(bu_id: @user.bu_id)
+      flash[:notice] = " An account for #{@user.first_name} #{@user.last_name} was successfully created"
       redirect_to root_page_path and return
     else
       flash[:error]= "Please fill in all required fields."

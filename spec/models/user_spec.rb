@@ -24,5 +24,11 @@ describe User do
   it "is invalid without a pin" do
     FactoryGirl.build(:user, pin: nil).should_not be_valid
   end
+
+  #add tests for:
+  # "is valid without an assigned bike"
+  # "is invalid without a total ride time"
+  # "is invalid without a total number of rides"
+  # when all of that code is fixed
   
 end

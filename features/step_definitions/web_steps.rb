@@ -105,9 +105,9 @@ Given(/^I am on \/add_a_rack$/) do
   visit(add_a_rack) # express the regexp above with the code you wish you had
 end
 
-Then(/^I should see "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
-end
+#Then(/^I should see "(.*?)"$/) do |arg1|
+#  pending # express the regexp above with the code you wish you had
+#end
 
 Then /^the checkbox "(.+)" should be unchecked$/ do |checkbox|
   find_field(checkbox)[:value].should eq "false"
