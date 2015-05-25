@@ -1,0 +1,28 @@
+= render 'navbar'
+.container-fluid
+
+.col-md-12
+  %h1 
+    = "Hi, " 
+    -# = session[user_name]
+  -# need to push to repo so Jared can pull and make the route from his sign in page to this so that the session hash can be accessed 
+
+  %h3 
+    = "Assigned Bike: "
+  %h3
+    = "Total Ride Time: "
+  %h3
+    = "Total Number of Rides: "
+
+  -# modified the user model and controller to get these but they need to be in the session hash
+
+  %br
+
+
+  %h4 
+    = link_to "Check In/ Out Bike", user_panel_page_path
+  -# replace the above with %li = link_to "Check In/Out Bike", check_out_path
+
+  %h4 
+    = link_to "Help/Instructions", how_it_works_page_path
+  -# replace the above with %li = link_to "Help/Instructions", help_path
