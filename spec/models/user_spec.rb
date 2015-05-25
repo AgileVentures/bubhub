@@ -25,10 +25,17 @@ describe User do
     FactoryGirl.build(:user, pin: nil).should_not be_valid
   end
 
-  #add tests for:
-  # "is valid without an assigned bike"
-  # "is invalid without a total ride time"
-  # "is invalid without a total number of rides"
-  # when all of that code is fixed
+  # the code these tests are for does not work as of yet
+  it "is valid without an assigned bike" do
+    FactoryGirl.build(:user, assigned_bike: nil).should be_valid
+  end
+
+  it "is invalid without a total ride time" do
+    FactoryGirl.build(:user, total_ride_time: nil).should_not be_valid
+  end
+
+  it "is invalid without a total number of rides" do
+    FactoryGirl.build(:user, total_number_of_rides: nil).should_not be_valid
+  end
   
 end
